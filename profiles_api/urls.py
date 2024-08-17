@@ -1,4 +1,4 @@
-from django.conf.urls import url, include
+from django.conf.urls import url, include,re_path
 from profiles_api import views
 from rest_framework.routers import DefaultRouter
 
@@ -8,7 +8,7 @@ router.register('hello-viewset',views.HelloViewSet,base_name='hello-viewset')
 router.register('profile',views.UserProfileViewSet)
 router.register('feed',views.UserProfileFeedViewSet)
 urlpatterns = [
-    url('hello-view',views.HelloApiView.as_view()),
-    url('login/',views.UserLoginApiView.as_view()),
-    url('',include(router.urls)),
+    re_path(r'^hello-view',views.HelloApiView.as_view()),
+    re_path(r'^login/',views.UserLoginApiView.as_view()),
+    re_path(r'^',include(router.urls)),
 ]
