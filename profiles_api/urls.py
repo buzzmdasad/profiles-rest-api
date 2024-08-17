@@ -1,4 +1,4 @@
-from django.urls import url, include,re_path
+from django.urls import  include,re_path
 from profiles_api import views
 from rest_framework.routers import DefaultRouter
 
